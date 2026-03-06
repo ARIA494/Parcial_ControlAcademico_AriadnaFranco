@@ -60,3 +60,43 @@ INSERT INTO Inscripcion (id_alumno, id_curso, fecha_inscripcion) VALUES
 (1, 2, '2026-03-02'),
 (2, 1, '2026-03-03'),
 (3, 3, '2026-03-04');
+
+
+-- =========================
+-- CONSULTA 1
+-- Mostrar todos los alumnos activos
+-- =========================
+SELECT *
+FROM Alumno
+WHERE activo = TRUE;
+
+-- =========================
+-- CONSULTA 2
+-- Mostrar los cursos con más de 3 créditos
+-- =========================
+SELECT *
+FROM Curso
+WHERE creditos > 3;
+
+-- =========================
+-- CONSULTA 3
+-- Mostrar alumnos inscritos con nombre del curso
+-- =========================
+SELECT 
+    Alumno.nombre,
+    Alumno.apellido,
+    Curso.nombre AS nombre_curso
+FROM Inscripcion
+JOIN Alumno ON Inscripcion.id_alumno = Alumno.id_alumno
+JOIN Curso ON Inscripcion.id_curso = Curso.id_curso;
+
+-- =========================
+-- CONSULTA 4
+-- Cantidad de alumnos inscritos por curso
+-- =========================
+SELECT 
+    Curso.nombre,
+    COUNT(Inscripcion.id_alumno) AS cantidad_alumnos
+FROM Curso
+JOIN Inscripcion ON Curso.id_curso = Inscripcion.id_curso
+GROUP BY Curso.nombre;
