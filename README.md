@@ -8,3 +8,12 @@ Fecha: 05/03/2026
 
 Este repositorio corresponde al examen parcial de la materia de Software.
 
+
+
+## Estructura del Proyecto 
+
+Parcial_ControlAcademico_AriadnaFranco/
+│
+├── README.md
+└── database
+    └── script.sql
